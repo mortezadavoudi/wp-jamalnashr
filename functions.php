@@ -287,14 +287,14 @@ function show_attribute_terms ($atts, $content = null)	{
         echo '<option>بحث ...</option>';
         foreach ($terms as $term) {
 
-            echo '<option data-tokens="' . $term->name . '" value="http://daroljamal.com/shop/?filter_'.$a['attribute_slug'].'='.$term->slug.'"> ' . $term->name . ' </option>';
+            echo '<option data-tokens="' . $term->name . '" value="http://daroljamal.com/shop/?'.$a['attribute_slug'].'='.$term->slug.'"> ' . $term->name . ' </option>';
         }
         echo '</select>';
         echo '</div>';
         echo '<ul class="row ltnum">';
         foreach ($terms as $term) {
 
-            echo '<li class="col-md-6 hnum"><a href="http://daroljamal.com/shop/?filter_'.$a['attribute_slug'].'='.$term->slug.'"> ' . $term->name . '<div class="count-number">' .  $term->count . '</div><div class="icon-grid"><a href="http://daroljamal.com/shop/?filter_'.$a['attribute_slug'].'='.$term->slug.'&shop_view=list&per_page='.$term->count.'"></a></div> </a></li>';
+            echo '<li class="col-md-6 hnum"><a href="http://daroljamal.com/shop/?'.$a['attribute_slug'].'='.$term->slug.'"> ' . $term->name . '<div class="count-number">' .  $term->count . '</div><div class="icon-grid"><a href="http://daroljamal.com/shop/?'.$a['attribute_slug'].'='.$term->slug.'&shop_view=list&per_page='.$term->count.'"></a></div> </a></li>';
         }
         echo '</ul>';
     }
@@ -380,5 +380,80 @@ function wc_get_gallery_image_html( $attachment_id, $main_image = false ) {
     return '<div data-thumb="' . esc_url( $thumbnail_src[0] ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_src[0] ) . '">' . $image . '</a></div>';
 }
 
-
-
+//
+//if (!function_exists('my_commonPriceHtml')) {
+//
+//    function my_commonPriceHtml($price_amt, $regular_price, $sale_price) {
+//        $html_price = '<p class="price">';
+//        //if product is in sale
+//        if (($price_amt == $sale_price) && ($sale_price != 0)) {
+//            $html_price .= '<ins>' . wc_price($sale_price) . '</ins>';
+//            $html_price .= '&nbsp;&nbsp;<del>' . wc_price($regular_price) . '</del>';
+//        }
+//        //in sale but free
+//        else if (($price_amt == $sale_price) && ($sale_price == 0)) {
+//            $html_price .= '<ins>Free!</ins>';
+//            $html_price .= '<del>' . wc_price($regular_price) . '</del>';
+//        }
+//        //not is sale
+//        else if (($price_amt == $regular_price) && ($regular_price != 0)) {
+//            $html_price .= '<ins>' . wc_price($regular_price) . '</ins>';
+//        }
+//        //for free product
+//        else if (($price_amt == $regular_price) && ($regular_price == 0)) {
+//            $html_price .= '<ins>Free!</ins>';
+//        }
+//        $html_price .= '</p>';
+//        return $html_price;
+//    }
+//
+//}
+//
+//add_filter('woocommerce_get_price_html', 'my_simple_product_price_html', 100, 2);
+//
+//function my_simple_product_price_html($price, $product) {
+//    if ($product->is_type('simple')) {
+//        $regular_price = $product->regular_price;
+//        $sale_price = $product->sale_price;
+//        $price_amt = $product->price;
+//        return my_commonPriceHtml($price_amt, $regular_price, $sale_price);
+//    } else {
+//        return $price;
+//    }
+//}
+//
+//add_filter('woocommerce_variation_sale_price_html', 'my_variable_product_price_html', 10, 2);
+//add_filter('woocommerce_variation_price_html', 'my_variable_product_price_html', 10, 2);
+//
+//function my_variable_product_price_html($price, $variation) {
+//    $variation_id = $variation->variation_id;
+////creating the product object
+//    $variable_product = new WC_Product($variation_id);
+//
+//    $regular_price = $variable_product->regular_price;
+//    $sale_price = $variable_product->sale_price;
+//    $price_amt = $variable_product->price;
+//
+//    return my_commonPriceHtml($price_amt, $regular_price, $sale_price);
+//}
+//
+//add_filter('woocommerce_variable_sale_price_html', 'my_variable_product_minmax_price_html', 10, 2);
+//add_filter('woocommerce_variable_price_html', 'my_variable_product_minmax_price_html', 10, 2);
+//
+//function my_variable_product_minmax_price_html($price, $product) {
+//    $variation_min_price = $product->get_variation_price('min', true);
+//    $variation_max_price = $product->get_variation_price('max', true);
+//    $variation_min_regular_price = $product->get_variation_regular_price('min', true);
+//    $variation_max_regular_price = $product->get_variation_regular_price('max', true);
+//
+//    if (($variation_min_price == $variation_min_regular_price) && ($variation_max_price == $variation_max_regular_price)) {
+//        $html_min_max_price = $price;
+//    } else {
+//        $html_price = '<p class="price">';
+//        $html_price .= '<ins>' . wc_price($variation_min_price) . '-' . wc_price($variation_max_price) . '</ins>';
+//        $html_price .= '<del>' . wc_price($variation_min_regular_price) . '-' . wc_price($variation_max_regular_price) . '</del>';
+//        $html_min_max_price = $html_price;
+//    }
+//
+//    return $html_min_max_price;
+//}
