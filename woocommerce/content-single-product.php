@@ -88,51 +88,44 @@ if ( post_password_required() ) {
                 <div class="content-product col-9">
                     <?php woocommerce_template_single_excerpt(); ?>
                     <div class="pre-side-top mt-5 row">
+                        <div class="attr">
+                            <?php
+                            $has_row    = false;
+                            $attributes = $product->get_attributes();
+                            ob_start();
+                            ?>
+                            <div class="attributes incontent">
+                                <?php foreach ( $attributes as $attribute ) :
+                                    if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) )
+                                        continue;
+                                    $values = wc_get_product_terms( $product->get_id(), $attribute['name'], array( 'fields' => 'names' ) );
+                                    $att_val = apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+                                    if( empty( $att_val ) )
+                                        continue;
+                                    $has_row = true;
+                                    ?>
+                                    <div class="show_attr">
+                                        <div class="att_label"><?php echo wc_attribute_label( $attribute['name'] ); ?></div>
+                                        <div class="att_value"><?php echo $att_val; ?></div>
+                                    </div>
+                                <?php endforeach; ?>
+                                <a href="#tab-title-additional_information" class="secondary-link">+ موارد بیشتر</a>
+                            </div>
+                            <?php
+                            if ( $has_row ) {
+                                echo ob_get_clean();
+                            } else {
+                                ob_end_clean();
+                            }
+                            ?>
+
+                        </div>
                         <?php woocommerce_template_single_price(); ?>
                         <?php woocommerce_template_single_add_to_cart(); ?>
                     </div>
                 </div>
                 <div class="col-3 pr">
-                    <?php
 
-                    $has_row    = false;
-                    $attributes = $product->get_attributes();
-
-                    ob_start();
-
-                    ?>
-                    <div class="product_attributes incontent">
-
-                        <?php foreach ( $attributes as $attribute ) :
-
-                            if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) )
-                                continue;
-
-                            $values = wc_get_product_terms( $product->get_id(), $attribute['name'], array( 'fields' => 'names' ) );
-                            $att_val = apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
-
-                            if( empty( $att_val ) )
-                                continue;
-
-                            $has_row = true;
-                            ?>
-
-                            <div class="col">
-                                <div class="att_label"><?php echo wc_attribute_label( $attribute['name'] ); ?></div>
-                                <div class="att_value"><?php echo $att_val; ?></div><!-- .att_value -->
-                            </div><!-- .col -->
-
-                        <?php endforeach; ?>
-
-                    </div><!-- .product_attributes -->
-                    <?php
-                    if ( $has_row ) {
-                        echo ob_get_clean();
-                    } else {
-                        ob_end_clean();
-                    }
-
-                    ?>
                 </div>
             </div>
         </div>

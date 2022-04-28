@@ -1609,12 +1609,12 @@ p.stars span a.star-5{width:80px;z-index:6}
     background-repeat: repeat;
     background-repeat: no-repeat;
     content: "";
-    width: 100%;
+    width: 50%;
     height: 100%;
     position: absolute;
     margin: auto;
-    top: 30%;
-    left: 20%;
+    top: 12%;
+    left: 181px;
 }
 .woocommerce-Reviews-title {
     padding-bottom: 20px;
@@ -2273,10 +2273,11 @@ div#wfspb-main-content {
 .yith_wcas_result_content {
     padding-bottom: 31px;
 }
-.product_attributes.incontent {
+.attributes.incontent {
     font-size: 15px;
     max-height: 310px;
     overflow: hidden;
+    margin-bottom: 25px;
 }
 .pr{
     position: relative;
@@ -2289,4 +2290,19 @@ div#wfspb-main-content {
     position: absolute;
     right: -5px;
     box-shadow: 8px 0 30px 1px #ccc;
+}
+.show_attr {
+    display: flex;
+}
+.att_label {
+    font-weight: bold;
+    padding-left: 13px;
+    width: 95px;
+}
+.secondary-link {
+    padding: 0 !important;
+    border: 0;
+    text-align: right !important;
+    color: #1ebcc5 !important;
+    background-color: transparent !important;
 }
