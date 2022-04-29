@@ -3,6 +3,7 @@ require_once get_template_directory() . '/inc/bootstrap-nav.php';
 require_once get_template_directory() . '/inc/core/settings.php';
 require_once get_template_directory() . '/inc/redux/redux-core/framework.php';
 require_once get_template_directory() . '/inc/redux/sample/config.php';
+require_once get_template_directory() . '/inc/widget/last_psot.php';
 
 //include_once get_template_directory() . '/inc/plugins/woo-smart-compare/wpc-smart-compare.php';
 //include_once get_template_directory() . '/inc/plugins/woo-smart-compare/index.php';
@@ -69,9 +70,9 @@ function theme_setup(){
         'id' => 'sidebar-posts',
         'description' => __('پست های وبلاگ', 'textdomain'),
         'before_widget' => '<div id="%1$s" class="sidebarBox %2$s">',
-        'after_widget' => '</div>',
+        'after_widget' => '</div></div>',
         'before_title' => '<div class="sidebarTop"><h3 class="sideTitle">',
-        'after_title' => '</h3></div>',
+        'after_title' => '</h3></div><div class="sideBox">',
     ));
     register_sidebar(array(
         'name' => __('سایدبار فروشگاه', 'textdomain'),
@@ -457,3 +458,42 @@ function wc_get_gallery_image_html( $attachment_id, $main_image = false ) {
 //
 //    return $html_min_max_price;
 //}
+
+function example_cats_related_post() {
+    $post_id = get_the_ID();
+    $cat_ids = array();
+    $categories = get_the_category( $post_id );
+    if(!empty($categories) && !is_wp_error($categories)):
+        foreach ($categories as $category):
+            array_push($cat_ids, $category->term_id);
+        endforeach;
+    endif;
+    $current_post_type = get_post_type($post_id);
+    $query_args = array(
+        'category__in'   => $cat_ids,
+        'post_type'      => $current_post_type,
+        'post__not_in'    => array($post_id),
+        'posts_per_page'  => '3',
+    );
+    $related_cats_post = new WP_Query( $query_args );?>
+    <div class="owl-carousel owl-theme blog-slider">
+    <?php if($related_cats_post->have_posts()):
+        while($related_cats_post->have_posts()): $related_cats_post->the_post();?>
+            <div class="item blog-item">
+                <div class="blog-item-top">
+                    <a href="<?php the_permalink(); ?>" class="blog-image">
+                        <?php the_post_thumbnail(); ?>
+                    </a>
+                </div>
+                <div class="blog-item-bottom">
+                    <a href="<?php the_permalink(); ?>" class="blog-title"><h3><?php the_title(); ?></h3></a>
+                </div>
+            </div>
+        <?php endwhile;
+        wp_reset_postdata();
+        ?>
+    </div>
+<?php
+    endif;
+
+}
