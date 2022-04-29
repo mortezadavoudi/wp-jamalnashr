@@ -143,12 +143,7 @@ defined( 'ABSPATH' ) || exit;
                     <tr>
                         <td colspan="6" class="actions">
 
-                            <?php if ( wc_coupons_enabled() ) { ?>
-                                <div class="coupon">
-                                    <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
-                                    <?php do_action( 'woocommerce_cart_coupon' ); ?>
-                                </div>
-                            <?php } ?>
+
 
                             <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 
@@ -161,13 +156,19 @@ defined( 'ABSPATH' ) || exit;
                     <?php do_action( 'woocommerce_after_cart_contents' ); ?>
                     </tbody>
                 </table>
+                    <?php if ( wc_coupons_enabled() ) { ?>
+                        <div class="coupon">
+                            <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+                            <?php do_action( 'woocommerce_cart_coupon' ); ?>
+                        </div>
+                    <?php } ?>
                 <?php do_action( 'woocommerce_after_cart_table' ); ?>
             </form>
         </div>
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
         <div class="col-12 col-lg-4 col-md-4">
-            <div class="cart-collaterals promot cart-table">
+            <div class="cart-collaterals cart-table">
                 <?php
                 /**
                  * Cart collaterals hook.
