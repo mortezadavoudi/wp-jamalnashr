@@ -4,6 +4,7 @@
         <?php if(isset($jamal_admin['opt-color-general'])){ ?> --bs-color-sec: <?php echo $jamal_admin['opt-color-general']; ?>;
     <?php } ?> <?php if(isset($jamal_admin['opt-color-primary'])){ ?> --bs-color-secs: <?php echo $jamal_admin['opt-color-primary']; ?>;
     <?php } ?> <?php if(isset($jamal_admin['opt-color-secondary'])){ ?> --bs-color-offer: <?php echo $jamal_admin['opt-color-secondary']; ?>;
+    <?php } ?> <?php if(isset($jamal_admin['opt-color-shadow'])){ ?> --bs-color-shadow: <?php echo $jamal_admin['opt-color-shadow']; ?>;
     <?php } ?>
     }
 </style>
