@@ -127,6 +127,7 @@ Text Domain: jamaldomain
     --bs-color-sec : #20cda2;
     --bs-color-offer : #ff1e1e;
     --bs-color-secs : #eef4f4;
+    --bs-color-shadow : #75e0c4;
     --bs-body-font-family:IRANSansX;
 }
 body{
@@ -567,26 +568,26 @@ input[type="submit"] {
 .cart-collaterals {
     position: relative;
 }
-.cart-collaterals::before {
-    content: "";
-    position: absolute;
-    background: #f9f9f9;
-    width: 25px;
-    height: 25px;
-    right: -15px;
-    top: 50%;
-    border-radius: 50%;
-}
-.cart-collaterals::after {
-    content: "";
-    position: absolute;
-    background: #f9f9f9;
-    width: 25px;
-    height: 25px;
-    left: -15px;
-    top: 50%;
-    border-radius: 50%;
-}
+/*.cart-collaterals::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    background: #f9f9f9;*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    right: -15px;*/
+/*    top: 50%;*/
+/*    border-radius: 50%;*/
+/*}*/
+/*.cart-collaterals::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    background: #f9f9f9;*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    left: -15px;*/
+/*    top: 50%;*/
+/*    border-radius: 50%;*/
+/*}*/
 .sub-total .tr {
     font-size: 16px;
     font-weight: bold;
@@ -911,7 +912,7 @@ del bdi {
     background: var(--bs-color-sec);
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 2px 10px 2px #75e0c4;
+    box-shadow: 0 2px 10px 2px var(--bs-color-shadow);
     position: relative;
 }
 .item-add-to-card a {
@@ -1774,7 +1775,7 @@ p.stars span a.star-5{width:80px;z-index:6}
     font-size: 19px;
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 10px 2px #75e0c4;
+    box-shadow: 0 2px 10px 2px var(--bs-color-shadow);
 }
 a.page-numbers {
     background: var(--bs-color-secs);
@@ -2213,9 +2214,11 @@ div#wfspb-main-content {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    align-content: start;
+    justify-content: start;
+    align-items: start;
+    margin-right: 39px;
+    font-size: 14px;
 }
 #wfspb_missing_amount .woocommerce-Price-currencySymbol {
     font-size: 16px;
@@ -2686,14 +2689,35 @@ div#wfspb-main-content {
     left: 21px;
     bottom: 30px;
 }
-
-
-
-
-
-
-
-
+.woocommerce-free-shipping-bar-order-content {
+    position: relative;
+}
+.woocommerce-free-shipping-bar-message .amount {
+    font-size: 19px;
+}
+.coupon .button {
+    font-weight: 300 !important;
+}
+.woocommerce-free-shipping-bar-message::before {
+    content: "\f48b";
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+    color: #4caf50;
+    line-height: normal;
+    font-family: "Font Awesome 5 Pro";
+    top: -5px;
+}
+.woocommerce-free-shipping-bar-order .woocommerce-free-shipping-bar-order-bar .woocommerce-free-shipping-bar-order-bar-inner {
+    background: #4caf50 !important;
+}
+.vi-wcaio-sidebar-cart-bt-nav-checkout {
+    display: none;
+}
+#shipping_method {
+    font-weight: 300;
+    float: left;
+}
 
 
 
