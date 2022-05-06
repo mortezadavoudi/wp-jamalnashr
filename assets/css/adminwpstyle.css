@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 08 Fat.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 08 Fat.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 08 Fat.woff') format('woff');
+    font-weight: 800;
+    font-display: swap;
+    font-style: normal}
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 07 Heavy.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 07 Heavy.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 07 Heavy.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal}
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 06 Bold.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 06 Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 06 Bold.woff') format('woff');
+    font-display: swap;
+    font-weight: bold;
+    font-style: normal}
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 05 Medium.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 05 Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 05 Medium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal}
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 03 Light.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 03 Light.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 03 Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal}
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 02 Thin.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 02 Thin.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 02 Thin.woff') format('woff');
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal}
+@font-face {
+    font-family: "IRANYekan";
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 01 Hairline.eot');
+    src: url('../fonts/YekanBakh/Yekan Bakh FaNum 01 Hairline.eot?#iefix') format('embedded-opentype'), url('../fonts/YekanBakh/Yekan Bakh FaNum 01 Hairline.woff') format('woff');
+    font-weight: 100;
+    font-display: swap;
+    font-style: normal}
+body,.cmb-repeatable-group .cmb-group-title,.cmb2-options-page.wrap > h2, #wpadminbar *:not([class="ab-icon"]), .wp-core-ui, .media-menu, .media-frame *, .media-modal * {
+	font-family:IRANYekan !important;
+}
